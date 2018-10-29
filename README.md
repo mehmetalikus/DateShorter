@@ -1,9 +1,8 @@
 # DateShorter
 
-
 Usage
 
-// DATE 2018-10-29 17:15:00  (Y-m-d H:i:s)
-
-getDateShorten("2018-10-29 17:15:00");
-// output : 29 Eki
+echo DateShorter::Output("2018-10-29 17:00:00", "en"); 
+// Prints 29 Oct
+echo DateShorter::Output("2018-10-29 17:00:00", "tr"); 
+// Prints 29 Eki
