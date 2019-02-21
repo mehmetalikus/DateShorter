@@ -42,7 +42,7 @@ class DateShorter
         self::$names = $param;   
     }
 
-    public static function Output(String $dateTime, Array $param = Null): String
+    public static function output(String $dateTime, Array $param = Null): String
     {
         if($param != NULL && is_array($param)){
             self::set($lang);
