@@ -45,7 +45,7 @@ class DateShorter
     public static function output(String $dateTime, Array $param = Null): String
     {
         if($param != NULL && is_array($param)){
-            self::set($lang);
+            self::set($param);
         }        
         $date = explode(" " , $dateTime);
         $date = explode("-", $date[0]);
