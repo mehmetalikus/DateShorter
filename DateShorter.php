@@ -1,14 +1,13 @@
 <?php 
-
 /**
  * @author Mehmet Ali KUŞ
  * @web http://mehmetalikus.parsnova.net
  * @mail mehmetali.kus@hotmail.com
- * @date 29 October 2018
+ * @date 21 February 2019
 */
 class DateShorter
 {
-    private static $monthIndexs = [
+    private static $indexs = [
         '01',
         '02',
         '03',
@@ -22,54 +21,34 @@ class DateShorter
         '11',
         '12'
     ];
-    private static $shortMonthNames = [];
+    
+    private static $names = [
+        "Oca",
+        "Sub",
+        "Mar",
+        "Nis",
+        "May",
+        "Haz",
+        "Tem",
+        "Agu",
+        "Eyl",
+        "Eki",
+        "Kas",
+        "Ara"
+    ];
 
-    public static function setLanguage($lang = "tr")
-    {
-        if($lang == "en")
-        {
-            self::$shortMonthNames = [
-                'Jan', 
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov', 
-                'Dec'  
-            ];
-        }
-        else if($lang == "tr")
-        {
-            self::$shortMonthNames = [
-                'Oca', 
-                'Şub',
-                'Mar',
-                'Nis',
-                'May',
-                'Haz',
-                'Tem',
-                'Ağu',
-                'Eyl',
-                'Eki',
-                'Kas', 
-                'Ara'  
-            ];  
-        }
+    public static function set(Array $param): Void
+    {   
+        self::$names = $param;   
     }
 
-
-    public static function Output($dateTime, $lang = "tr")
+    public static function Output(String $dateTime, Array $param = Null): String
     {
-        self::setLanguage($lang);
+        if($param != NULL && is_array($param)){
+            self::set($lang);
+        }        
         $date = explode(" " , $dateTime);
         $date = explode("-", $date[0]);
-
-        return $date[2] . " " . $c = str_replace(self::$monthIndexs, self::$shortMonthNames, $date[1]);
+        return $date[2] . " " . $c = str_replace(self::$indexs, self::$names, $date[1]);
     }
-
 }
